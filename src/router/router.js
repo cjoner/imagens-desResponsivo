@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
-// Vue.use(Router)
+// Componentes carregados de forma assíncrona
+const HomePage = () => import(/* webpackChunkName: "home-page" */ '../components/HomePage.vue');
+const ImagensDiversas = () => import(/* webpackChunkName: "imagens-diversas" */ '../components/ImagensDiversas.vue');
+const TextoPrincipal = () => import(/* webpackChunkName: "texto-principal" */ '../components/TextoPrincipal.vue');
 
-const HomePage = () => import(/* webpackChunkName: "home-page" */  '../components/HomePage.vue');
-const ImagensDiversas = () => import(/* webpackChunkName: "home-page" */ '../components/ImagensDiversas.vue');
-const TextoPrincipal = () => import(/* webpackChunkName: "home-page" */ '../components/TextoPrincipal.vue');
-export default new Router({
-  mode: 'history',
+// Criação do roteador
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -25,4 +25,6 @@ export default new Router({
       component: ImagensDiversas
     }
   ]
-})
+});
+
+export default router;
