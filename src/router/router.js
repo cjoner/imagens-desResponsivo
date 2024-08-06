@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-Vue.use(Router)
+// Vue.use(Router)
 
 const HomePage = () => import(/* webpackChunkName: "home-page" */  '../components/HomePage.vue');
 const ImagensDiversas = () => import(/* webpackChunkName: "home-page" */ '../components/ImagensDiversas.vue');
